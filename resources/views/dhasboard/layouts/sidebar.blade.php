@@ -13,6 +13,12 @@
             my posts
           </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link {{ Request::is('dhasboard/posts*') ? 'active' :'' }}" href="/dhasboard/posts">
+              <span data-feather="file-text"></span>
+              my posts
+            </a>
+          </li>
       </ul>
     </div>
   </nav>
