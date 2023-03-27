@@ -16,6 +16,9 @@
           <li class="nav-item">
             <a class="nav-link {{ $title === "posts" ? 'active' : '' }}" href="/posts">blog</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{ $title === "profile" ? 'active' : '' }}" href="/profile">profile</a>
+          </li>
         </ul>
 
 

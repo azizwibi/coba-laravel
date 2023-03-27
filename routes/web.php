@@ -41,6 +41,16 @@ Route::get('/about', function () {
     ]);
 });
 
+Route::get('/profile', function () {
+    return view('profile',[
+        "title" =>"profile",
+        "name" =>"aziz wibisono",
+        "email" =>"azizwibisono@gmail.com",
+        "image" =>"aziz.jpg"
+
+    ]);
+});
+
 
 Route::get('/posts',[PostController::class,'index']);
 Route::get('/posts/{post:slug}',[PostController::class,'show']);
