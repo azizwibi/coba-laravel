@@ -3,6 +3,7 @@
 
 
 use App\models\post;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
@@ -86,4 +87,22 @@ Route::get('/dhasboard/posts/cekSlug', [ DhasboardPostController::class,'cekSlug
 Route::resource('/dhasboard/posts',DhasboardPostController::class)->middleware('auth');
 
 
+//get raja ongkir
+
+Route::get('/list-provinsi', function() {
+    $response = HTTP::withHeaders([
+        'key' =>'801090b35f7884454f4e48c746198dc9'
+    ])->get('https://api.rajaongkir.com/starter/province');
+
+$rajaOngkir = $response->json()['rajaongkir'];
+$provinsi = $response->json()['rajaongkir']['results'];
+$statusCode = $response->json()['rajaongkir']['status']['description'];
+
+    //dd($response->json()['rajaongkir']['results']);
+
+    // dd($provinsi);
+
+    return view('list-provinsi', compact([
+'provinsi','statusCode' ]));
+});
 
